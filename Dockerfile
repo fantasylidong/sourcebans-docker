@@ -8,10 +8,10 @@ RUN apt-get update && \
         wget \
     && \
     rm -rf /var/lib/apt/lists/*
-
+    
 RUN mkdir /usr/src/sourcebans-${SOURCEBANS_VERSION}/ && \
-    wget -qO- https://github.com/sbpp/sourcebans-pp/releases/download/${SOURCEBANS_VERSION}/sourcebans-pp-${SOURCEBANS_VERSION}.webpanel-only.tar.gz | tar xvz -C /usr/src/sourcebans-${SOURCEBANS_VERSION}/ && \
-    git clone https://github.com/aXenDeveloper/sourcebans-web-theme-fluent.git && \
+    git clone https://github.com/sbpp/sourcebans-pp.git /sourcebans/ && \
+    git clone https://github.com/aXenDeveloper/sourcebans-web-theme-fluent.git /sourcebans/themes/fluent && \
     mkdir /docker/
 
 
