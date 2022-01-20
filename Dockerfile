@@ -14,7 +14,8 @@ RUN mkdir /usr/src/sourcebans-${SOURCEBANS_VERSION}/ && \
     git clone https://github.com/aXenDeveloper/sourcebans-web-theme-fluent.git /sourcebans/web/themes/fluent && \
     mkdir /docker/
 
-
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN savedAptMark="$(apt-mark showmanual)" && \
     apt-get update && \
