@@ -1,17 +1,20 @@
-FROM php:7.1-apache
+FROM php:7.2-apache
 
-ENV SOURCEBANS_VERSION=1.6.3 \
+ENV SOURCEBANS_VERSION=1.6.4 \
     REMOVE_SETUP_DIRS=false
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y git \
         wget \
     && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /usr/src/sourcebans-${SOURCEBANS_VERSION}/ && \
     wget -qO- https://github.com/sbpp/sourcebans-pp/releases/download/${SOURCEBANS_VERSION}/sourcebans-pp-${SOURCEBANS_VERSION}.webpanel-only.tar.gz | tar xvz -C /usr/src/sourcebans-${SOURCEBANS_VERSION}/ && \
+    git clone https://github.com/aXenDeveloper/sourcebans-web-theme-fluent.git
     mkdir /docker/
+
+
 
 RUN savedAptMark="$(apt-mark showmanual)" && \
     apt-get update && \
