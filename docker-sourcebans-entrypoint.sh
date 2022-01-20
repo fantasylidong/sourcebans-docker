@@ -7,6 +7,7 @@ set -euo pipefail
 # Copy Sourcebans sourcecode to docroot if empty
 if [ -z "$(ls -A /var/www/html/)" ]; then
     cp -R /usr/src/sourcebans-${SOURCEBANS_VERSION}/* /var/www/html/
+    cp -R /usr/src/sourcebans-web-theme-fluent/* /var/www/html/themes/
 fi
 
 # If $REMOVE_SETUP_DIRS is set remove the install and updater directories if they exist
