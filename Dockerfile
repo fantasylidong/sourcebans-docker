@@ -29,7 +29,7 @@ RUN savedAptMark="$(apt-mark showmanual)" && \
     apt-mark auto '.*' > /dev/null && \
     apt-mark manual $savedAptMark && \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false
-RUN cd /sourcebans/ && composer install
+#RUN cd /sourcebans/ && composer install
 
 COPY docker-sourcebans-entrypoint.sh /docker/docker-sourcebans-entrypoint.sh
 COPY sourcebans.ini /usr/local/etc/php/conf.d/sourcebans.ini
