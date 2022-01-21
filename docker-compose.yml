@@ -1,32 +1,10 @@
-version: '3'
+version: 1.0
 services:
-  web:
-    image: crinis/sourcebans:latest
-    environment:
-      # Set this to 'true' to automatically delete the install/ and updater/ directories during start
-      REMOVE_SETUP_DIRS: 'false'
-    networks:
-      - db
-    ports: 
-    - 80:80
+  sourcebans:
+    image: morzlee/sourcebans
     volumes:
       - sourcebans:/var/www/html/
-
-  db:
-    image: mariadb:5
+    ports:
+    - "80:80"
     environment:
-      MYSQL_USER: sourcebans
-      MYSQL_PASSWORD: ThisShouldBeAStrongPassword
-      MYSQL_DATABASE: sourcebans
-      MYSQL_ROOT_PASSWORD: ThisShouldBeAStrongPassword
-    volumes:
-      - mysql:/var/lib/mysql
-    networks:
-      - db
-
-networks:
-  db:
-
-volumes:
-  sourcebans: 
-  mysql:
+      - REMOVE_SETUP_DIRS: 'false'
