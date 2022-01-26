@@ -4,7 +4,7 @@ ENV SOURCEBANS_VERSION=1.6.4 \
     REMOVE_SETUP_DIRS=false
 
 RUN apt-get update && \
-    apt-get install -y git p7zip-full nano php7.4-mysql \
+    apt-get install -y git p7zip-full nano php7.4-mysqli \
         wget \
     && \
     rm -rf /var/lib/apt/lists/*
