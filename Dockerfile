@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN mkdir /usr/src/sourcebans-${SOURCEBANS_VERSION}/ && \
     git clone https://github.com/fantasylidong/sourcebans-pp.git /sourcebans/ && \
     git clone https://github.com/aXenDeveloper/sourcebans-web-theme-fluent.git /tmp && \
-    mv /tmp/sourcebans-web-theme-fluent/ /sourcebans/web/themes/ && \
+    mv /tmp/sourcebans-web-theme-fluent/ /sourcebans/themes/ && \
     mkdir /docker/
 
 # Install Composer
